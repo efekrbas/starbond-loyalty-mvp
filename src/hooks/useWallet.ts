@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import {
   isConnected,
-  getAddress,
+  requestAccess,
 } from "@stellar/freighter-api";
 import { useWalletContext } from "@/context/WalletContext";
 
@@ -27,10 +27,10 @@ export const useWallet = () => {
         throw new Error("Freighter not detected. Please make sure the extension is installed and enabled.");
       }
 
-      // 2. Request address
-      console.log("Requesting address from Freighter...");
-      const result = await getAddress();
-      console.log("Freighter getAddress result:", result);
+      // 2. Request access/address
+      console.log("Requesting access from Freighter...");
+      const result = await requestAccess();
+      console.log("Freighter requestAccess result:", result);
 
       if (result.error) {
         throw new Error(result.error);
