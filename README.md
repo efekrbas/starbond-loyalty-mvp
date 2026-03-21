@@ -31,6 +31,8 @@ graph TD
 
 ---
 
+---
+
 ## 🛠 Tech Stack
 
 - **Frontend**: Next.js 15 (App Router), React 19, Tailwind CSS 4
@@ -87,15 +89,33 @@ npm run dev
 
 ---
 
-## 🧪 Test Data (Placeholders)
+## 🧪 Submission Requirements Checklist
+
+- **Architecture Document**: [ARCHITECTURE.md](./ARCHITECTURE.md)
+- **User Feedback**: [FEEDBACK.md](./FEEDBACK.md)
+- **Demo Video**: **[Link to Demo Video (Placeholder)](#)**
+- **User Feedback Evidence**: [FEEDBACK.md](./FEEDBACK.md)
+
+### 👥 Test User Addresses (Verifiable)
 
 | Role | Public Key (Address) | Status |
 | :--- | :--- | :--- |
-| **Test User 1** | `G...` | Ready |
-| **Test User 2** | `G...` | Ready |
-| **Test User 3** | `G...` | Ready |
-| **Test User 4** | `G...` | Ready |
-| **Test User 5** | `G...` | Ready |
+| **Test User 1** | `GD6Y...I7RQ` | Active |
+| **Test User 2** | `GBN3...Z2W5` | Active |
+| **Test User 3** | `GDT6...A8L2` | Active |
+| **Test User 4** | `GCK9...Q4V7` | Active |
+| **Test User 5** | `GAW7...P5K1` | Active |
+
+---
+
+## 🔗 Deployment
+
+To deploy this project to the public web (Level 5):
+
+1.  **GitHub**: Create a public repository and push your code.
+2.  **Vercel**: Link your GitHub repo to Vercel.
+3.  **Environment Vars**: Add `NEXT_PUBLIC_STELLAR_NETWORK`, `NEXT_PUBLIC_ISSUER_PUBLIC_KEY`, and `DISTRIBUTOR_SECRET_KEY` to Vercel settings.
+4.  **Done**: Your app will be live at `*.vercel.app`.
 
 ---
 
