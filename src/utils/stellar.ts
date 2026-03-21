@@ -1,7 +1,7 @@
-import {
   Asset,
   Horizon,
   TransactionBuilder,
+  Transaction,
   Operation,
   Networks,
 } from "@stellar/stellar-sdk";
@@ -62,7 +62,8 @@ export const createTrustline = async (
       throw new Error(freighterError);
     }
 
-    return { signedTxXdr };
+    const { hash } = await server.submitTransaction(new Transaction(signedTxXdr, Networks.TESTNET));
+    return { signedTxXdr, result: hash };
   } catch (error: any) {
     return { error: error.message || "Failed to create trustline." };
   }
