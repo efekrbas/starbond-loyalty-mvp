@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useWallet } from "@/hooks/useWallet";
 import { checkTrustline, createTrustline } from "@/utils/stellar";
+import Dashboard from "@/components/Dashboard";
 
 export default function Home() {
   const { publicKey, isConnected } = useWallet();
@@ -62,7 +63,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-background text-foreground">
-      <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm flex flex-col space-y-8 animate-in fade-in duration-1000">
+      <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm flex flex-col space-y-12 animate-in fade-in duration-1000">
         <div className="text-center space-y-4">
           <h1 className="text-6xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500">
             StarBond Loyalty
@@ -72,9 +73,15 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="glass p-8 rounded-3xl w-full max-w-md flex flex-col items-center space-y-6 shadow-2xl shadow-blue-500/10">
+        {isConnected && publicKey && (
+          <div className="w-full flex justify-center animate-in slide-in-from-bottom-4 fade-in duration-700 delay-200 fill-mode-both">
+            <Dashboard publicKey={publicKey} />
+          </div>
+        )}
+
+        <div className="glass p-8 rounded-3xl w-full max-w-md flex flex-col items-center space-y-6 shadow-2xl shadow-blue-500/10 transition-all hover:border-blue-500/20">
           <div className="flex flex-col items-center space-y-2">
-            <span className="text-blue-500 text-xs font-bold uppercase tracking-widest">Rewards</span>
+            <span className="text-blue-500 text-xs font-bold uppercase tracking-widest">Available Reward</span>
             <div className="text-4xl font-bold flex items-baseline space-x-2">
               <span>10.00</span>
               <span className="text-sm text-gray-500">BOND</span>
