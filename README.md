@@ -93,7 +93,7 @@ npm run dev
 
 - **Architecture Document**: [ARCHITECTURE.md](./ARCHITECTURE.md)
 - **User Feedback**: [FEEDBACK.md](./FEEDBACK.md)
-- **Demo Video**: **[Link to Demo Video (Placeholder)](#)**
+- **Demo Video**: **[Watch Demo Video](public/demovideo.mp4)**
 - **User Feedback Evidence**: [FEEDBACK.md](./FEEDBACK.md)
 
 ### 👥 Test User Addresses (Verifiable)
