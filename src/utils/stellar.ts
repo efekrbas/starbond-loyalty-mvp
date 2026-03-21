@@ -1,6 +1,9 @@
 import {
   Asset,
   Horizon,
+  TransactionBuilder,
+  Operation,
+  Network,
 } from "@stellar/stellar-sdk";
 import { signTransaction } from "@stellar/freighter-api";
 
@@ -18,9 +21,8 @@ export const checkTrustline = async (
   try {
     const account = await server.loadAccount(userAddress);
     return account.balances.some((balance: any) => {
-      return (
-        balance.asset_code === assetCode && balance.asset_issuer === issuerAddress
-      );
+      // @ts-ignore
+      return balance.asset_code === assetCode && balance.asset_issuer === issuerAddress;
     });
   } catch (error) {
     console.error("Error checking trustline:", error);
@@ -32,22 +34,31 @@ export const checkTrustline = async (
  * Prompts the user to create a Trustline using Freighter.
  */
 export const createTrustline = async (
+  userAddress: string,
   assetCode: string,
   issuerAddress: string
 ): Promise<{ signedTxXdr?: string; error?: string }> => {
   try {
-    // Note: In a real app, you'd build the transaction on the client
-    // and send it to Freighter for signing.
-    // This is a simplified version using Freighter API's expected flow.
-    
-    // We'll need the user's address to build the transaction
-    // This function assumes the calling code handles the transaction building
-    // or we use a higher-level tool.
-    
-    // For this utility, we'll return instructions or a placeholder for the logic 
-    // that uses Operation.changeTrust.
-    
-    return { error: "Transaction building logic required for client-side signing." };
+    const account = await server.loadAccount(userAddress);
+    const asset = new Asset(assetCode, issuerAddress);
+
+    const transaction = new TransactionBuilder(account, {
+      fee: await server.fetchBaseFee(),
+      networkPassphrase: Network.TESTNET,
+    })
+      .addOperation(
+        Operation.changeTrust({
+          asset: asset,
+        })
+      )
+      .setTimeout(30)
+      .build();
+
+    const signedTxXdr = await signTransaction(transaction.toXDR(), {
+      networkPassphrase: Network.TESTNET,
+    });
+
+    return { signedTxXdr };
   } catch (error: any) {
     return { error: error.message || "Failed to create trustline." };
   }
