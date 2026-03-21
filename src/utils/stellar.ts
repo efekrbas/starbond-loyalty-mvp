@@ -1,3 +1,4 @@
+import {
   Asset,
   Horizon,
   TransactionBuilder,
@@ -37,7 +38,7 @@ export const createTrustline = async (
   userAddress: string,
   assetCode: string,
   issuerAddress: string
-): Promise<{ signedTxXdr?: string; error?: string }> => {
+): Promise<{ signedTxXdr?: string; result?: string; error?: string }> => {
   try {
     const account = await server.loadAccount(userAddress);
     const asset = new Asset(assetCode, issuerAddress);
@@ -60,6 +61,10 @@ export const createTrustline = async (
 
     if (freighterError) {
       throw new Error(freighterError);
+    }
+
+    if (!signedTxXdr) {
+      throw new Error("Failed to sign transaction.");
     }
 
     const { hash } = await server.submitTransaction(new Transaction(signedTxXdr, Networks.TESTNET));
