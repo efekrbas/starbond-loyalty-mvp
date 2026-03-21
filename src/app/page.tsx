@@ -7,7 +7,61 @@ import Dashboard from "@/components/Dashboard";
 import TransactionHistory from "@/components/TransactionHistory";
 
 export default function Home() {
-// ... (rest of the component logic)
+  const { publicKey, isConnected } = useWallet();
+  const [claiming, setClaiming] = useState(false);
+  const [status, setStatus] = useState<{ type: "success" | "error" | "info"; message: string } | null>(null);
+
+  const handleClaim = async () => {
+    if (!publicKey) return;
+
+    setClaiming(true);
+    setStatus({ type: "info", message: "Checking trustline..." });
+
+    try {
+      const issuerPublic = process.env.NEXT_PUBLIC_ISSUER_PUBLIC_KEY;
+      if (!issuerPublic) throw new Error("Issuer public key not configured.");
+
+      // 1. Check Trustline
+      const hasTrustline = await checkTrustline(publicKey, "BOND", issuerPublic);
+
+      if (!hasTrustline) {
+        setStatus({ type: "info", message: "Trustline missing. Please approve the trustline request..." });
+        const { error: trustlineError } = await createTrustline(publicKey, "BOND", issuerPublic);
+        
+        if (trustlineError) {
+          throw new Error(`Trustline failed: ${trustlineError}`);
+        }
+        
+        setStatus({ type: "info", message: "Trustline created! Processing claim..." });
+      } else {
+        setStatus({ type: "info", message: "Processing claim..." });
+      }
+
+      // 2. Call Claim API
+      const response = await fetch("/api/claim", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userAddress: publicKey }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to claim tokens.");
+      }
+
+      setStatus({
+        type: "success",
+        message: `Successfully claimed 10 BOND! Transaction: ${data.hash.slice(0, 8)}...`,
+      });
+    } catch (err: any) {
+      console.error("Claim Error:", err);
+      setStatus({ type: "error", message: err.message || "An error occurred." });
+    } finally {
+      setClaiming(false);
+    }
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-background text-foreground">
       <div className="z-10 max-w-5xl w-full items-center justify-center font-mono text-sm flex flex-col space-y-16 animate-in fade-in duration-1000">
