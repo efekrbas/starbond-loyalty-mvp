@@ -30,14 +30,14 @@ export const useWallet = () => {
       // 2. Request access/address
       console.log("Requesting access from Freighter...");
       const result = await requestAccess();
-      console.log("Freighter requestAccess result:", result);
+      console.log("Freighter requestAccess result:", JSON.stringify(result));
 
       if (result.error) {
-        throw new Error(result.error);
+        throw new Error(`Freighter Error: ${result.error}`);
       }
       
       if (!result.address) {
-        throw new Error("No address returned from Freighter.");
+        throw new Error("No address returned. Please make sure your Freighter wallet is UNLOCKED and you have an account created.");
       }
 
       setPublicKey(result.address);
