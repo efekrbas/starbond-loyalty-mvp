@@ -3,7 +3,7 @@ import {
   Horizon,
   TransactionBuilder,
   Operation,
-  Network,
+  Networks,
 } from "@stellar/stellar-sdk";
 import { signTransaction } from "@stellar/freighter-api";
 
@@ -43,8 +43,8 @@ export const createTrustline = async (
     const asset = new Asset(assetCode, issuerAddress);
 
     const transaction = new TransactionBuilder(account, {
-      fee: await server.fetchBaseFee(),
-      networkPassphrase: Network.TESTNET,
+      fee: (await server.fetchBaseFee()).toString(),
+      networkPassphrase: Networks.TESTNET,
     })
       .addOperation(
         Operation.changeTrust({
@@ -54,9 +54,13 @@ export const createTrustline = async (
       .setTimeout(30)
       .build();
 
-    const signedTxXdr = await signTransaction(transaction.toXDR(), {
-      networkPassphrase: Network.TESTNET,
+    const { signedTxXdr, error: freighterError } = await signTransaction(transaction.toXDR(), {
+      networkPassphrase: Networks.TESTNET,
     });
+
+    if (freighterError) {
+      throw new Error(freighterError);
+    }
 
     return { signedTxXdr };
   } catch (error: any) {
