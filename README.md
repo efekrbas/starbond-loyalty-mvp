@@ -100,11 +100,11 @@ npm run dev
 
 | Role | Public Key (Address) | Status |
 | :--- | :--- | :--- |
+| **Issuer (BOND)** | `GBD7LSRGQBUGGETBYE3Q6AI3UGH2FJ6SG53S2BSQ545HAD7V4VG6CAM2` | Active |
+| **Distributor** | `GDUZ7WE7SGM7I242Z4RJ2VDZXS7DQ7JKCVCM7CXORETWDAAN4CHH3TLU` | Active |
 | **Test User 1** | `GD6Y...I7RQ` | Active |
 | **Test User 2** | `GBN3...Z2W5` | Active |
 | **Test User 3** | `GDT6...A8L2` | Active |
-| **Test User 4** | `GCK9...Q4V7` | Active |
-| **Test User 5** | `GAW7...P5K1` | Active |
 
 ---
 

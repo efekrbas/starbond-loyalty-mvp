@@ -1,7 +1,7 @@
 const {
   Asset,
   Keypair,
-  Network,
+  Networks,
   Operation,
   TransactionBuilder,
   Horizon,
@@ -39,7 +39,7 @@ async function issueToken() {
     const distributorAccount = await server.loadAccount(distributorKeypair.publicKey());
     const trustTx = new TransactionBuilder(distributorAccount, {
       fee: await server.fetchBaseFee(),
-      networkPassphrase: Network.TESTNET,
+      networkPassphrase: Networks.TESTNET,
     })
       .addOperation(
         Operation.changeTrust({
@@ -58,7 +58,7 @@ async function issueToken() {
     const issuerAccount = await server.loadAccount(issuerKeypair.publicKey());
     const issueTx = new TransactionBuilder(issuerAccount, {
       fee: await server.fetchBaseFee(),
-      networkPassphrase: Network.TESTNET,
+      networkPassphrase: Networks.TESTNET,
     })
       .addOperation(
         Operation.payment({
