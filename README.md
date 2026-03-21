@@ -5,7 +5,7 @@ StarBond is a premium, blockchain-powered loyalty platform built on the **Stella
 ---
 
 ## 🚀 Live Demo
-**[Link to Live Demo (Placeholder)](#)**
+**[starbond-loyalty-mvp.vercel.app](https://starbond-loyalty-mvp.vercel.app/)**
 
 ---
 

@@ -15,25 +15,37 @@ export const useWallet = () => {
   const connect = useCallback(async () => {
     setLoading(true);
     setError(null);
+    console.log("Attempting to connect to Freighter...");
     try {
-      const { isConnected: connected } = await isConnected();
+      // 1. Check if Freighter is available
+      const status = await isConnected();
+      console.log("Freighter isConnected status:", status);
+      
+      const connected = typeof status === "boolean" ? status : status?.isConnected;
+      
       if (!connected) {
-        throw new Error("Freighter not found. Please install the Freighter extension.");
+        throw new Error("Freighter not detected. Please make sure the extension is installed and enabled.");
       }
 
-      const { address, error: freighterError } = await getAddress();
-      if (freighterError) {
-        throw new Error(freighterError);
+      // 2. Request address
+      console.log("Requesting address from Freighter...");
+      const result = await getAddress();
+      console.log("Freighter getAddress result:", result);
+
+      if (result.error) {
+        throw new Error(result.error);
       }
       
-      if (!address) {
-        throw new Error("Failed to get address.");
+      if (!result.address) {
+        throw new Error("No address returned from Freighter.");
       }
 
-      setPublicKey(address);
+      setPublicKey(result.address);
+      console.log("Wallet connected successfully:", result.address);
     } catch (err: any) {
-      setError(err.message || "An error occurred during connection.");
-      console.error("Freighter Connection Error:", err);
+      const msg = err.message || "An error occurred during connection.";
+      setError(msg);
+      console.error("Detailed Freighter Connection Error:", err);
     } finally {
       setLoading(false);
     }
