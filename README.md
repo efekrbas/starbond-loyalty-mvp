@@ -89,11 +89,26 @@ npm run dev
 
 ---
 
+## 📝 User Feedback Implementation
+
+Based on user feedback collected via our [User Feedback Form](./USER_FEEDBACK_FORM.md), the following improvements were implemented:
+
+| # | Feedback Statement | Change Made | Commit ID |
+|---|-------------------|-------------|-----------|
+| 1 | **"The disconnect button is hard to find, it blends into the background too much."** | Redesigned the disconnect button with a **red color scheme**, **logout icon**, and **increased contrast** to make it immediately visible. | `bb69801` |
+| 2 | **"I wish I could copy my wallet address to clipboard with one click."** | Added a **copy-to-clipboard** feature on the wallet address in the Navbar with **green checkmark** visual feedback and **"Address copied!" toast** notification. | `8c3c0bf` |
+
+> **Files Modified**: `src/components/Navbar.tsx`, `FEEDBACK.md`  
+> **Full Feedback Responses**: [USER_FEEDBACK_FORM.md](./USER_FEEDBACK_FORM.md)
+
+---
+
 ## 🧪 Submission Requirements Checklist
 
 - **Architecture Document**: [ARCHITECTURE.md](./ARCHITECTURE.md)
 - **User Feedback**: [FEEDBACK.md](./FEEDBACK.md)
-- **Demo Video**: **[Watch Demo Video](public/demovideo.mp4)**
+- **User Feedback Form**: [USER_FEEDBACK_FORM.md](./USER_FEEDBACK_FORM.md)
+- **Demo Video**: **[Watch Demo Video](https://www.youtube.com/watch?v=e-wohp52qes)**
 - **User Feedback Evidence**: [FEEDBACK.md](./FEEDBACK.md)
 
 ### 👥 Test User Addresses (Verifiable)
@@ -102,9 +117,9 @@ npm run dev
 | :--- | :--- | :--- |
 | **Issuer (BOND)** | `GBD7LSRGQBUGGETBYE3Q6AI3UGH2FJ6SG53S2BSQ545HAD7V4VG6CAM2` | Active |
 | **Distributor** | `GDUZ7WE7SGM7I242Z4RJ2VDZXS7DQ7JKCVCM7CXORETWDAAN4CHH3TLU` | Active |
-| **Test User 1** | `GD6Y...I7RQ` | Active |
-| **Test User 2** | `GBN3...Z2W5` | Active |
-| **Test User 3** | `GDT6...A8L2` | Active |
+| **Test User 1** | `GCI4FVG5Q5IGW3IYFPKVNNNPASEDOXD43SWUYISRHLTNSFAWZJG4A7CJ` | Active |
+| **Test User 2** | `GA3WKZPAEMGMMMB5PJKWPITIFD54SECIID3V4QKNB3ARROYQNCKHBPI2` | Active |
+| **Test User 3** | `GCA2WI5PBFRJI7KKJT5I6Z33V6OGKZFXRXLYW3TQGQPGJ2JEQVGZDJUB` | Active |
 
 ---
 
