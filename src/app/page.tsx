@@ -112,12 +112,25 @@ export default function Home() {
               </button>
 
               {status && (
-                <div className={`w-full p-4 rounded-xl text-sm border ${
+                <div className={`w-full p-4 rounded-xl text-sm border flex flex-col space-y-2 ${
                   status.type === "success" ? "bg-green-500/10 border-green-500/20 text-green-400" :
                   status.type === "error" ? "bg-red-500/10 border-red-500/20 text-red-400" :
                   "bg-blue-500/10 border-blue-500/20 text-blue-400"
                 }`}>
-                  {status.message}
+                  <div className="flex items-start space-x-2">
+                    {status.type === "info" && (
+                      <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    )}
+                    <span>{status.message}</span>
+                  </div>
+                  
+                  {status.message.includes("Trustline") && (
+                    <div className="mt-2 p-2 bg-blue-500/5 rounded-lg border border-blue-500/10 text-[11px] leading-relaxed text-blue-300">
+                      <p><strong>What is a Trustline?</strong> To receive assets on Stellar (like BOND), you must first explicitly authorize your wallet to hold them. This prevents spam and ensures you only receive assets you want.</p>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -128,12 +141,13 @@ export default function Home() {
 
         {!isConnected && (
            <div className="glass p-8 rounded-3xl w-full max-w-md flex flex-col items-center space-y-6 shadow-2xl shadow-blue-500/10 transition-all hover:border-blue-500/20 grayscale opacity-50">
-           <div className="flex flex-col items-center space-y-2">
+           <div className="flex flex-col items-center space-y-2 text-center">
              <span className="text-blue-500 text-xs font-bold uppercase tracking-widest">Available Reward</span>
              <div className="text-4xl font-bold flex items-baseline space-x-2">
                <span>10.00</span>
                <span className="text-sm text-gray-500">BOND</span>
              </div>
+             <p className="text-[10px] text-gray-500 max-w-[200px]">New users will be guided through setting up a Trustline automatically.</p>
            </div>
            <button
              disabled
