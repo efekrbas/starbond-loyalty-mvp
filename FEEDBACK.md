@@ -10,7 +10,7 @@ This document summarizes user feedback and testing results for the StarBond Loya
 | :--- | :--- | :--- |
 | **UI/UX** | "The dark theme looks premium, but it was hard to find the disconnect button." | ✅ **Fixed** — Redesigned the disconnect button with a red color scheme, logout icon, and increased visibility. |
 | **UI/UX** | "I want to copy my wallet address easily with one click." | ✅ **Fixed** — Added a copy-to-clipboard feature with visual feedback (green checkmark + toast notification). |
-| **Onboarding** | "I didn't know I needed a Trustline to claim tokens." | Implemented an automatic trustline detection and prompt before claiming. |
+| **Onboarding** | "I didn't know I needed a Trustline to claim tokens. It would be nice to have a short explanation." | ✅ **Fixed** — Added an inline informational box explaining Trustlines when users are prompted to create one. |
 | **Performance** | "The balances update quickly after I claim tokens." | Confirmed success of the 10s auto-refresh logic in the Dashboard. |
 | **Trust** | "Linking to Stellar Expert made me feel safer about my rewards." | Integrated hash deep-links throughout the application. |
 

@@ -97,8 +97,9 @@ Based on user feedback collected via our [User Feedback Form](./USER_FEEDBACK_FO
 |---|-------------------|-------------|-----------|
 | 1 | **"The disconnect button is hard to find, it blends into the background too much."** | Redesigned the disconnect button with a **red color scheme**, **logout icon**, and **increased contrast** to make it immediately visible. | `bb69801` |
 | 2 | **"I wish I could copy my wallet address to clipboard with one click."** | Added a **copy-to-clipboard** feature on the wallet address in the Navbar with **green checkmark** visual feedback and **"Address copied!" toast** notification. | `8c3c0bf` |
+| 3 | **"I didn't know I needed a Trustline... It would be nice to have a short explanation."** | Added an **inline explanation box** and **info icons** that explain what a Trustline is when users are prompted to create one, improving onboarding clarity. | `d835677` |
 
-> **Files Modified**: `src/components/Navbar.tsx`, `FEEDBACK.md`  
+> **Files Modified**: `src/app/page.tsx`, `src/components/Navbar.tsx`, `FEEDBACK.md`  
 > **Full Feedback Responses**: [USER_FEEDBACK_FORM.md](./USER_FEEDBACK_FORM.md)
 
 ---
