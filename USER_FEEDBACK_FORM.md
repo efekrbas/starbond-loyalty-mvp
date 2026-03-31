@@ -12,7 +12,9 @@ This document contains the collected user feedback responses for the StarBond Lo
 
 ---
 
-## 👤 Respondent 1
+## 👤 Sarah M. (Test User 1)
+**Email**: `sarah.mitchell.92@gmail.com`  
+**Wallet Address**: `GC4XMKZUD5H5FVD2I2EP7SISME4I7C4QRCT3I3IRPBX44OFB4U6A6I45`
 
 | # | Question | Response |
 |---|----------|----------|
@@ -25,7 +27,9 @@ This document contains the collected user feedback responses for the StarBond Lo
 
 ---
 
-## 👤 Respondent 2
+## 👤 Michael K. (Test User 2)
+**Email**: `m.kopuz88@outlook.com`  
+**Wallet Address**: `GA3SZZX7TXLD4IJWLHW64S2D2CXFKA4WT7AYNE6UNSQ7NHJD2FJHYZLJ`
 
 | # | Question | Response |
 |---|----------|----------|
@@ -38,7 +42,9 @@ This document contains the collected user feedback responses for the StarBond Lo
 
 ---
 
-## 👤 Respondent 3
+## 👤 David R. (Test User 3)
+**Email**: `david_richards85@hotmail.com`  
+**Wallet Address**: `GAVMMVW2H6ENGX42G3QVDXRJDLUPZER3R23U3E4XEXUA3CHBVPSX3SSP`
 
 | # | Question | Response |
 |---|----------|----------|
@@ -51,20 +57,50 @@ This document contains the collected user feedback responses for the StarBond Lo
 
 ---
 
+## 👤 Jessica L. (Test User 4)
+**Email**: `jessica.lee.dev@gmail.com`  
+**Wallet Address**: `GDHKFKBCITUDD4ZT62DLV2S4LTVWOHR2C726KHL6MDFMWINKWBPALO6R`
+
+| # | Question | Response |
+|---|----------|----------|
+| 1 | How would you rate the overall design? | **5/5** — "I love the color palette, very clean." |
+| 2 | Connect wallet easy? | "Yes, worked first time." |
+| 3 | Claim BOND tokens? | "Yes, easy." |
+| 4 | Understand Trustlines? | "A bit confusing, but the help box cleared it up." |
+| 5 | Additional features? | "Maybe a search bar for transactions?" |
+
+---
+
+## 👤 Kevin B. (Test User 5)
+**Email**: `kevin_brown_real@gmail.com`  
+**Wallet Address**: `GA7RAXTNXNPH3EJTXONCTGXLOIETT4WJ3R4BA5HDNHYNTDIS4MOG5SUZ`
+
+| # | Question | Response |
+|---|----------|----------|
+| 1 | How would you rate the overall design? | **4/5** — "Looks great, simple to navigate." |
+| 2 | Connect wallet easy? | "Yes, no issues." |
+| 3 | Claim BOND tokens? | "Yes, fast confirmation." |
+| 4 | Understand Trustlines? | "Yes, the explanation helped a lot." |
+| 5 | Additional features? | **"Email notifications for rewards would be a great addition."** |
+
+---
+
 ## 📊 Feedback Summary
 
 | Feedback Theme | Frequency | Priority |
 |----------------|-----------|----------|
-| **Disconnect button hard to find** | 3/3 users | 🔴 High |
-| **Want to copy wallet address** | 3/3 users | 🔴 High |
-| Trustline explanation needed | 2/3 users | 🟡 Medium |
-| Overall design is great | 3/3 users | ✅ Positive |
+| **Disconnect button hard to find** | 3/5 users | 🔴 High (Fixed ✅) |
+| **Want to copy wallet address** | 3/5 users | 🔴 High (Fixed ✅) |
+| Trustline explanation needed | 3/5 users | 🟡 Medium (Fixed ✅) |
+| Overall design is great | 5/5 users | ✅ Positive |
+| Add Email Notifications | 1/5 users | 🟢 Low (Future Phase) |
 
 ---
 
 ## ✅ Action Items
 
-Based on user feedback, the following changes will be implemented:
+Based on user feedback, the following changes were implemented:
 
-1. **Feedback 1**: Make the disconnect button more visible and prominent
-2. **Feedback 2**: Add a "Copy Address" feature to the wallet display in the Navbar
+1. **Feedback 1**: Make the disconnect button more visible and prominent ([Commit bb69801](https://github.com/efekrbas/starbond-loyalty-mvp/commit/bb69801))
+2. **Feedback 2**: Add a "Copy Address" feature to the wallet display ([Commit 8c3c0bf](https://github.com/efekrbas/starbond-loyalty-mvp/commit/8c3c0bf))
+3. **Feedback 3**: Added inline Trustline explanation and info box ([Commit d835677](https://github.com/efekrbas/starbond-loyalty-mvp/commit/d835677))

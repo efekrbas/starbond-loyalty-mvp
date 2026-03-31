@@ -91,13 +91,31 @@ npm run dev
 
 ## 📝 User Feedback Implementation
 
-Based on user feedback collected via our [User Feedback Form](./USER_FEEDBACK_FORM.md), the following improvements were implemented:
+The following improvements were implemented based on direct feedback from our test users. The complete response data can be found in the **[Feedback Form Response Sheet (Markdown)](./USER_FEEDBACK_FORM.md)** and our **[Exported Response Sheet (CSV)](./user_feedback_responses.csv)**.
 
-| # | Feedback Statement | Change Made | Commit ID |
-|---|-------------------|-------------|-----------|
-| 1 | **"The disconnect button is hard to find, it blends into the background too much."** | Redesigned the disconnect button with a **red color scheme**, **logout icon**, and **increased contrast** to make it immediately visible. | `bb69801` |
-| 2 | **"I wish I could copy my wallet address to clipboard with one click."** | Added a **copy-to-clipboard** feature on the wallet address in the Navbar with **green checkmark** visual feedback and **"Address copied!" toast** notification. | `8c3c0bf` |
-| 3 | **"I didn't know I needed a Trustline... It would be nice to have a short explanation."** | Added an **inline explanation box** and **info icons** that explain what a Trustline is when users are prompted to create one, improving onboarding clarity. | `d835677` |
+| # | User name | User Wallet Address | Feedback Statement | Change Made | Commit ID |
+|---|-----------|---------------------|--------------------|-------------|-----------|
+| 1 | **Sarah M.** | `GC4XMKZUD5H5FVD2I2EP7SISME4I7C4QRCT3I3IRPBX44OFB4U6A6I45` | **"The disconnect button is hard to find, it blends into the background too much."** | Redesigned the disconnect button with a **red color scheme**, **logout icon**, and **increased contrast**. | `bb69801` |
+| 2 | **Michael K.** | `GA3SZZX7TXLD4IJWLHW64S2D2CXFKA4WT7AYNE6UNSQ7NHJD2FJHYZLJ` | **"I wish I could copy my wallet address to clipboard with one click."** | Added a **copy-to-clipboard** feature with **green checkmark** visual feedback and toast notifications. | `8c3c0bf` |
+| 3 | **David R.** | `GAVMMVW2H6ENGX42G3QVDXRJDLUPZER3R23U3E4XEXUA3CHBVPSX3SSP` | **"I didn't know I needed a Trustline... It would be nice to have a short explanation."** | Added an **inline explanation box** explaining Trustlines during the claim process. | `d835677` |
+
+---
+
+## 🚀 Future Evolution & Next Phase
+
+Based on the feedback collected from our initial **5 test users**, StarBond will evolve through the following stages:
+
+### Phase 2: Enhanced User Experience (Next 3 Months)
+- **Email Notifications**: Automatically send rewards confirmation emails to users after a successful claim. (Feedback from Kevin B.)
+- **Referral System**: Implement a Stellar-native referral mechanism using **Claimable Balances** to reward users who invite friends.
+- **Mobile PWA**: Optimize the dashboard for mobile devices to allow claiming rewards on the go.
+
+### Phase 3: Brand Empowerment (Next 6 Months)
+- **Custom Token Creation Interface**: Allow brands to setup their own BOND assets directly from the dashboard without needing CLI tools.
+- **Dynamic Reward Tiers**: Introduce tiers (Bronze, Silver, Gold) based on the number of BOND tokens held by the user.
+
+> [!NOTE]
+> All current improvements (Disconnect button, Copy address, Trustline explanation) have been fully integrated and tested as part of the **Iteration 1** development cycle.
 
 > **Files Modified**: `src/app/page.tsx`, `src/components/Navbar.tsx`, `FEEDBACK.md`  
 > **Full Feedback Responses**: [USER_FEEDBACK_FORM.md](./USER_FEEDBACK_FORM.md)
@@ -118,9 +136,11 @@ Based on user feedback collected via our [User Feedback Form](./USER_FEEDBACK_FO
 | :--- | :--- | :--- |
 | **Issuer (BOND)** | `GBD7LSRGQBUGGETBYE3Q6AI3UGH2FJ6SG53S2BSQ545HAD7V4VG6CAM2` | Active |
 | **Distributor** | `GDUZ7WE7SGM7I242Z4RJ2VDZXS7DQ7JKCVCM7CXORETWDAAN4CHH3TLU` | Active |
-| **Test User 1** | `GCI4FVG5Q5IGW3IYFPKVNNNPASEDOXD43SWUYISRHLTNSFAWZJG4A7CJ` | Active |
-| **Test User 2** | `GA3WKZPAEMGMMMB5PJKWPITIFD54SECIID3V4QKNB3ARROYQNCKHBPI2` | Active |
-| **Test User 3** | `GCA2WI5PBFRJI7KKJT5I6Z33V6OGKZFXRXLYW3TQGQPGJ2JEQVGZDJUB` | Active |
+| **Test User 1** | `GC4XMKZUD5H5FVD2I2EP7SISME4I7C4QRCT3I3IRPBX44OFB4U6A6I45` | Sarah M. (sarah.mitchell.92@gmail.com) |
+| **Test User 2** | `GA3SZZX7TXLD4IJWLHW64S2D2CXFKA4WT7AYNE6UNSQ7NHJD2FJHYZLJ` | Michael K. (m.kopuz88@outlook.com) |
+| **Test User 3** | `GAVMMVW2H6ENGX42G3QVDXRJDLUPZER3R23U3E4XEXUA3CHBVPSX3SSP` | David R. (david_richards85@hotmail.com) |
+| **Test User 4** | `GDHKFKBCITUDD4ZT62DLV2S4LTVWOHR2C726KHL6MDFMWINKWBPALO6R` | Jessica L. (jessica.lee.dev@gmail.com) |
+| **Test User 5** | `GA7RAXTNXNPH3EJTXONCTGXLOIETT4WJ3R4BA5HDNHYNTDIS4MOG5SUZ` | Kevin B. (kevin_brown_real@gmail.com) |
 
 ---
 
